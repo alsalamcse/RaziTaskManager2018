@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "689885992676",
+    "firebase_url": "https://razitaskmanager2018.firebaseio.com",
+    "project_id": "razitaskmanager2018",
+    "storage_bucket": "razitaskmanager2018.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:689885992676:android:2432113a2c560487",
+        "android_client_info": {
+          "package_name": "razimograbi.razitaskmanager2018"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "689885992676-qsd7iim7m51uvkr4nia04v9grgu3dk81.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "razimograbi.razitaskmanager2018",
+            "certificate_hash": "013f43c9a5d380c46de43c04644418dbe5d2a253"
+          }
+        },
+        {
+          "client_id": "689885992676-0lai0nc76nkctegrkgd2vcnnso61tous.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHgPoYktjwurtg9ehiIS-rIDuRB92yxTk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "689885992676-0lai0nc76nkctegrkgd2vcnnso61tous.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
