@@ -19,6 +19,10 @@ import android.view.ViewGroup;
 
 import android.widget.TextView;
 
+import razimograbi.razitaskmanager2018.taskfragments.MyTasksFragment;
+import razimograbi.razitaskmanager2018.taskfragments.ProfileFragment;
+import razimograbi.razitaskmanager2018.taskfragments.TasksHistoryFragment;
+
 public class MainTabsActivity extends AppCompatActivity {
 
     /**
@@ -45,8 +49,9 @@ public class MainTabsActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
+        // build adapter
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
-
+        // viewpager = shows the pages of the fragments
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
@@ -129,23 +134,64 @@ public class MainTabsActivity extends AppCompatActivity {
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
      * one of the sections/tabs/pages.
      */
+    // build the FragmentAdapter class that extends FragmentPagerAdapter
+
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
+
+        MyTasksFragment myTasksFragment;
+        TasksHistoryFragment historyFragment;
+        ProfileFragment profileFragment;
 
         public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
         }
 
+        // for every adpater there is a get the get returns the object 7sb the position
         @Override
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
+            if (position == 0){
+                if (myTasksFragment == null){
+                    myTasksFragment = new MyTasksFragment();
+                }
+
+                return myTasksFragment;
+            }
+            if (position == 1){
+                if (historyFragment == null){
+                    historyFragment = new TasksHistoryFragment();
+                }
+                return historyFragment;
+            }
+            if (position == 2){
+                if (profileFragment == null){
+                    profileFragment = new ProfileFragment();
+                }
+                return profileFragment;
+            }
             return PlaceholderFragment.newInstance(position + 1);
         }
-
+        // returns fragment number
         @Override
         public int getCount() {
             // Show 3 total pages.
             return 3;
+        }
+
+        //returns 3nwan every fragment
+        @Override
+        public CharSequence getPageTitle(int position) {
+            if (position == 0){
+                return "Tasks";
+            }
+            if (position == 1){
+                return "History";
+            }
+            if (position == 2){
+                return "Profile";
+            }
+            return "NoName";
         }
     }
 }
