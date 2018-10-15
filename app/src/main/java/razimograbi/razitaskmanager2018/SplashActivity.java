@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import razimograbi.razitaskmanager2018.taskfragments.dummy.LoginActivity;
+
 public class SplashActivity extends AppCompatActivity {
 
     @Override
@@ -25,7 +27,7 @@ public class SplashActivity extends AppCompatActivity {
         public void run() {
             try {
                 sleep(3000);
-                Intent i = new Intent(getApplicationContext() , MainTabsActivity.class);
+                Intent i = new Intent(getApplicationContext() , LoginActivity.class);
                 startActivity(i);
 
             } catch (InterruptedException e) {

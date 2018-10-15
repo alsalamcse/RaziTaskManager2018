@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".taskfragments.dummy.SignUpActivity"
+    tools:showIn="@layout/activity_sign_up">
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:ems="10"
+        android:hint="First Name"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="68dp"
+        tools:layout_editor_absoluteY="16dp"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:ems="10"
+        android:hint="Last Name"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="68dp"
+        tools:layout_editor_absoluteY="16dp"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/PhoneId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Phone Number"
+        android:inputType="phone"
+        tools:layout_editor_absoluteX="68dp"
+        tools:layout_editor_absoluteY="161dp"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/Email_Id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        tools:layout_editor_absoluteX="68dp"
+        tools:layout_editor_absoluteY="237dp"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/Password_Id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        tools:layout_editor_absoluteX="68dp"
+        tools:layout_editor_absoluteY="311dp"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/SaveBtn"
+        android:layout_width="wrap_content"
+        android:textSize="25dp"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="123dp"
+        tools:layout_editor_absoluteY="375dp" />
+</LinearLayout>
