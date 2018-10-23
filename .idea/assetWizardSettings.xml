@@ -19,7 +19,7 @@
                                   <option name="values">
                                     <map>
                                       <entry key="backgroundLayerName" value="ic_launcher_background" />
-                                      <entry key="foregroundImage" value="D:\myicon.jpg" />
+                                      <entry key="foregroundImage" value="D:\addbtn.png" />
                                       <entry key="foregroundLayerName" value="ic_launcher_foreground" />
                                       <entry key="outputName" value="ic_launcher2" />
                                     </map>

@@ -27,6 +27,10 @@
         <activity
             android:name=".taskfragments.dummy.SignUpActivity"
             android:label="@string/title_activity_sign_up"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".taskfragments.dummy.AddTaskActivity"
+            android:label="@string/title_activity_add_task"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

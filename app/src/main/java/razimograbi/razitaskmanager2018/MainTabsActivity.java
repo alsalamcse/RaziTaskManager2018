@@ -1,5 +1,6 @@
 package razimograbi.razitaskmanager2018;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -22,6 +23,8 @@ import android.widget.TextView;
 import razimograbi.razitaskmanager2018.taskfragments.MyTasksFragment;
 import razimograbi.razitaskmanager2018.taskfragments.ProfileFragment;
 import razimograbi.razitaskmanager2018.taskfragments.TasksHistoryFragment;
+import razimograbi.razitaskmanager2018.taskfragments.dummy.AddTaskActivity;
+import razimograbi.razitaskmanager2018.taskfragments.dummy.LoginActivity;
 
 public class MainTabsActivity extends AppCompatActivity {
 
@@ -34,6 +37,7 @@ public class MainTabsActivity extends AppCompatActivity {
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
     private SectionsPagerAdapter mSectionsPagerAdapter;
+
 
     /**
      * The {@link ViewPager} that will host the section contents.
@@ -65,8 +69,10 @@ public class MainTabsActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+               // Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        //.setAction("Action", null).show();
+                Intent i = new Intent(getApplicationContext() , AddTaskActivity.class);
+                startActivity(i);
             }
         });
 

@@ -40,20 +40,50 @@ public class SignUpActivity extends AppCompatActivity {
         Save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // if email and password isnt empty
-                if (Email.getText().toString().length() > 4 && Password.getText().toString().length() > 4){
-                    //add the email and the password to the firebase
-                    createAccount(Email.getText().toString() , Password.getText().toString());
-                }else{
-                    Toast.makeText(getApplicationContext() , "Error the password or email is valid" , Toast.LENGTH_SHORT);
-                }
+                dataHandler();
+
             }
         });
     }
+
+    /**
+     * get email and password from the field and try to create new user
+     */
+
+    private void dataHandler() {
+        boolean isOk = true; // if all the fields are felled properly
+        String name = firstName.getText().toString();
+        String last = LastName.getText().toString();
+        String password = Password.getText().toString();
+        String phone  = Phone.getText().toString();
+        String email = Email.getText().toString();
+        if (email.length() < 4 && email.indexOf('@')<0 && email.indexOf('.')<0){
+            Email.setError("Wrong Email");
+            isOk = false;
+        }
+        if (password.length() < 7){
+            Password.setError("Have to be at least 7 chars");
+            isOk = false;
+        }
+        if (phone.length() < 10){
+            Phone.setError("Wrong number");
+            isOk = false;
+        }
+        if ((isOk)){
+            createAccount(email , password);
+        }
+    }
+
+    /**
+     * create firebase using email and password
+     * @param email user email
+     * @param passw user password
+     */
     private void createAccount(String email, String passw) {
-        auth.createUserWithEmailAndPassword(email,passw).addOnCompleteListener(SignUpActivity.this, new OnCompleteListener<AuthResult>() {
+        // waits for a respond from the server
+        auth.createUserWithEmailAndPassword(email,passw).addOnCompleteListener(SignUpActivity.this, new OnCompleteListener<AuthResult>() { //request
             @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
+            public void onComplete(@NonNull Task<AuthResult> task) { //response
                 if(task.isSuccessful())
                 {
                     Toast.makeText(SignUpActivity.this, "Authentication Successful.", Toast.LENGTH_SHORT).show();
