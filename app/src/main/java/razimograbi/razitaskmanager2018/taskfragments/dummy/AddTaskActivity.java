@@ -15,25 +15,19 @@ import razimograbi.razitaskmanager2018.R;
 public class AddTaskActivity extends AppCompatActivity {
     private EditText Task_Title , Task_Text , Task_DueDate;
     private SeekBar skbImportant , skbNecessary;
-    private Button btnsave;
+    private Button btnsave , date_btn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_task);
-        Task_Title = (EditText) findViewById(R.id.title_id);
-        Task_Text = (EditText) findViewById(R.id.text_id);
+        Task_Title =  findViewById(R.id.title_id);
+        Task_Text =  findViewById(R.id.text_id);
+        Task_DueDate =  findViewById(R.id.duo_id);
+        skbImportant =  findViewById(R.id.important_id);
+        skbNecessary =  findViewById(R.id.nec_id);
+        btnsave =  findViewById(R.id.save_btn_id);
+        date_btn =  findViewById(R.id.date_pick_id);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
     }
 
 }

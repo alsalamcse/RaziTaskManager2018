@@ -57,7 +57,7 @@ public class SignUpActivity extends AppCompatActivity {
         String password = Password.getText().toString();
         String phone  = Phone.getText().toString();
         String email = Email.getText().toString();
-        if (email.length() < 4 && email.indexOf('@')<0 && email.indexOf('.')<0){
+        if (email.length() < 4 || email.indexOf('@')<0 || email.indexOf('.')<0){
             Email.setError("Wrong Email");
             isOk = false;
         }
@@ -70,6 +70,7 @@ public class SignUpActivity extends AppCompatActivity {
             isOk = false;
         }
         if ((isOk)){
+            Toast.makeText(getApplicationContext() , "It worked " , Toast.LENGTH_SHORT);
             createAccount(email , password);
         }
     }

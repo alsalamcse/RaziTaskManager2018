@@ -89,23 +89,22 @@
         android:text="Save" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/duo_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/title_id"
-        android:layout_marginTop="132dp"
-        android:textSize="18dp"
+        android:layout_below="@+id/text_id"
         android:ems="10"
         android:hint="DuoDate"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textSize="18dp" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/date_pick_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/editText3"
+        android:layout_alignTop="@+id/duo_id"
         android:layout_marginEnd="23dp"
         android:text="PickDate" />
 
