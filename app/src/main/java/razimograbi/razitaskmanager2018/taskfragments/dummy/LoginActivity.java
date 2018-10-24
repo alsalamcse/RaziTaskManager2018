@@ -19,6 +19,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import razimograbi.razitaskmanager2018.MainTabsActivity;
 import razimograbi.razitaskmanager2018.R;
 
 public class LoginActivity extends AppCompatActivity {
@@ -49,6 +50,12 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                signIn(emailText.getText().toString() , passwordText.getText().toString());
+            }
+        });
 
     }
 
@@ -63,6 +70,9 @@ public class LoginActivity extends AppCompatActivity {
                     // Intent intent=new Intent(LogInActivity.this,MainFCMActivity.class);
                     //   startActivity(intent);
                     //  finish();
+                    Intent i = new Intent(getApplicationContext() , MainTabsActivity.class);
+                    startActivity(i);
+                    finish();
                 }
                 else
                 {

@@ -9,39 +9,41 @@
     tools:showIn="@layout/activity_add_task">
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/title_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/editText4"
-        android:layout_marginTop="52dp"
+        android:layout_alignStart="@+id/text_id"
+        android:layout_marginTop="25dp"
         android:ems="10"
         android:hint="Title"
+        android:textSize="18dp"
         android:inputType="textPersonName"
         android:text=""
         tools:layout_editor_absoluteX="35dp"
         tools:layout_editor_absoluteY="38dp" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/text_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="137dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="93dp"
         android:ems="10"
         android:hint="text"
+        android:textSize="18dp"
         android:inputType="textPersonName"
         tools:layout_editor_absoluteX="35dp"
         tools:layout_editor_absoluteY="112dp" />
 
     <SeekBar
-        android:id="@+id/seekBar3"
+        android:id="@+id/important_id"
         style="@style/Widget.AppCompat.SeekBar.Discrete"
         android:layout_width="304dp"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/editText3"
+        android:layout_alignStart="@+id/title_id"
         android:layout_centerVertical="true"
         android:max="10"
         android:progress="3" />
@@ -51,7 +53,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/editText3"
+        android:layout_alignStart="@+id/title_id"
         android:layout_marginTop="198dp"
         android:text="Important"
         android:textSize="20dp" />
@@ -61,29 +63,50 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/editText3"
+        android:layout_alignStart="@+id/title_id"
         android:layout_marginBottom="197dp"
         android:text="Necessary"
         android:textSize="20dp" />
 
     <SeekBar
-        android:id="@+id/seekBar4"
+        android:id="@+id/nec_id"
         style="@style/Widget.AppCompat.SeekBar.Discrete"
         android:layout_width="307dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/editText3"
+        android:layout_alignStart="@+id/title_id"
         android:layout_marginBottom="145dp"
         android:max="10"
         android:progress="3" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/save_btn_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/editText3"
-        android:layout_marginBottom="64dp"
+        android:layout_alignStart="@+id/title_id"
+        android:layout_marginBottom="67dp"
         android:text="Save" />
+
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/title_id"
+        android:layout_marginTop="132dp"
+        android:textSize="18dp"
+        android:ems="10"
+        android:hint="DuoDate"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/editText3"
+        android:layout_marginEnd="23dp"
+        android:text="PickDate" />
 
 </RelativeLayout>
