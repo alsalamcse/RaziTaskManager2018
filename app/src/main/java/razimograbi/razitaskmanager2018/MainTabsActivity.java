@@ -3,7 +3,6 @@ package razimograbi.razitaskmanager2018;
 import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -24,7 +23,6 @@ import razimograbi.razitaskmanager2018.taskfragments.MyTasksFragment;
 import razimograbi.razitaskmanager2018.taskfragments.ProfileFragment;
 import razimograbi.razitaskmanager2018.taskfragments.TasksHistoryFragment;
 import razimograbi.razitaskmanager2018.taskfragments.dummy.AddTaskActivity;
-import razimograbi.razitaskmanager2018.taskfragments.dummy.LoginActivity;
 
 public class MainTabsActivity extends AppCompatActivity {
 
@@ -159,7 +157,7 @@ public class MainTabsActivity extends AppCompatActivity {
             // Return a PlaceholderFragment (defined as a static inner class below).
             if (position == 0){
                 if (myTasksFragment == null){
-                    myTasksFragment = new MyTasksFragment();
+                    myTasksFragment = new MyTasksFragment(title, text, date, skbImportant.getProgress(), skbNecessary.getProgress());
                 }
 
                 return myTasksFragment;

@@ -1,6 +1,7 @@
 package razimograbi.razitaskmanager2018.taskfragments.dummy;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,10 +13,13 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
+import razimograbi.razitaskmanager2018.MainTabsActivity;
 import razimograbi.razitaskmanager2018.R;
+import razimograbi.razitaskmanager2018.taskfragments.MyTasksFragment;
 
 public class AddTaskActivity extends AppCompatActivity {
     private EditText Task_Title , Task_Text ;
@@ -42,6 +46,32 @@ public class AddTaskActivity extends AppCompatActivity {
         date_btn =  findViewById(R.id.date_pick_id);
 
     }
+    private void dataHandler() {
+        boolean isOk = true; // if all the fields are felled properly
+        String title = Task_Title.getText().toString();
+        String text = Task_Text.getText().toString();
+        String date = Task_date.getText().toString();
+        if (title.length() < 1){
+            Task_Title.setError("Missing Title");
+            isOk = false;
+        }
+        if (text.length() < 1){
+            Task_Text.setError("Missing Text");
+            isOk = false;
+        }
+        if (date.length() < 1){
+            Task_date.setError("choose a date");
+            isOk = false;
+        }
+
+        if ((isOk)){
+            Toast.makeText(getApplicationContext() , "It worked " , Toast.LENGTH_SHORT);
+
+            MyTasksFragment myTasksFragment = new MyTasksFragment(title , text , date , skbImportant.getProgress() ,skbNecessary.getProgress() );
+            Intent i = new Intent(getApplicationContext() , MainTabsActivity.class);
+            startActivity(i);
+        }
+    }
     public void onClick(View v) {
 
         if (v == date_btn) {
@@ -66,6 +96,10 @@ public class AddTaskActivity extends AppCompatActivity {
                     }, year, month, day);
             datePickerDialog.show();
         }
+        if (v == btnsave){
+            dataHandler();
+        }
+
     }
 
 

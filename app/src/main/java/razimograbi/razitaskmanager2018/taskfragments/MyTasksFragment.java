@@ -14,8 +14,6 @@ import razimograbi.razitaskmanager2018.R;
 import razimograbi.razitaskmanager2018.taskfragments.dummy.DummyContent;
 import razimograbi.razitaskmanager2018.taskfragments.dummy.DummyContent.DummyItem;
 
-import java.util.List;
-
 /**
  * A fragment representing a list of Items.
  * <p/>
@@ -32,8 +30,14 @@ public class MyTasksFragment extends Fragment {
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
+     * @param title
+     * @param text
+     * @param date
+     * @param progress
+     * @param skbNecessaryProgress
      */
-    public MyTasksFragment() {
+    public MyTasksFragment(String title, String text, String date, int progress, int skbNecessaryProgress) {
+
     }
 
     @Override
