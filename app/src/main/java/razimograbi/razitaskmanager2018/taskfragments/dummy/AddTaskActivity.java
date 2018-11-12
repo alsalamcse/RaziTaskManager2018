@@ -3,6 +3,7 @@ package razimograbi.razitaskmanager2018.taskfragments.dummy;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -15,23 +16,37 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.Calendar;
+import java.util.Date;
 
 import razimograbi.razitaskmanager2018.MainTabsActivity;
 import razimograbi.razitaskmanager2018.R;
+import razimograbi.razitaskmanager2018.taskfragments.Data_.MyTask;
 import razimograbi.razitaskmanager2018.taskfragments.MyTasksFragment;
 
-public class AddTaskActivity extends AppCompatActivity {
+public class AddTaskActivity extends AppCompatActivity  {
     private EditText Task_Title , Task_Text ;
     private SeekBar skbImportant , skbNecessary;
     private Button btnsave , date_btn;
     private TextView Task_date;
+
+
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference("message");
 
     private int year;
     private int month;
     private int day;
 
     static final int DATE_DIALOG_ID = 999;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +59,12 @@ public class AddTaskActivity extends AppCompatActivity {
         skbNecessary =  findViewById(R.id.nec_id);
         btnsave =  findViewById(R.id.save_btn_id);
         date_btn =  findViewById(R.id.date_pick_id);
+        btnsave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dataHandler();
+            }
+        });
 
     }
     private void dataHandler() {
@@ -51,6 +72,9 @@ public class AddTaskActivity extends AppCompatActivity {
         String title = Task_Title.getText().toString();
         String text = Task_Text.getText().toString();
         String date = Task_date.getText().toString();
+        int important = skbImportant.getProgress();
+        int necessary = skbNecessary.getProgress();
+
         if (title.length() < 1){
             Task_Title.setError("Missing Title");
             isOk = false;
@@ -65,13 +89,37 @@ public class AddTaskActivity extends AppCompatActivity {
         }
 
         if ((isOk)){
-            Toast.makeText(getApplicationContext() , "It worked " , Toast.LENGTH_SHORT);
+            MyTask task = new MyTask();
+            task.setCreatedAt(new Date());
+//            task.setDueDate(new Date(date));
+            task.setText(text);
+            task.setTitle(title);
+            task.setImportant(important);
+            task.setNecessary(necessary);
 
-            MyTasksFragment myTasksFragment = new MyTasksFragment(title , text , date , skbImportant.getProgress() ,skbNecessary.getProgress() );
+            FirebaseAuth auth = FirebaseAuth.getInstance();
+            task.setOwner(auth.getCurrentUser().getEmail());
+
+            DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+            String key = reference.child("MyTasks").push().getKey();
+            task.setKey(key);
+            reference.child("MyTasks").child(key).setValue(task).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if (task.isSuccessful()){
+                        Toast.makeText(getApplicationContext() , "it worked " , Toast.LENGTH_SHORT);
+                    }else {
+                        Toast.makeText(getApplicationContext() , "it didnt work " , Toast.LENGTH_SHORT);
+                    }
+                }
+            });
+
+            Toast.makeText(getApplicationContext() , "It worked " , Toast.LENGTH_SHORT);
             Intent i = new Intent(getApplicationContext() , MainTabsActivity.class);
             startActivity(i);
         }
     }
+
     public void onClick(View v) {
 
         if (v == date_btn) {
@@ -96,9 +144,7 @@ public class AddTaskActivity extends AppCompatActivity {
                     }, year, month, day);
             datePickerDialog.show();
         }
-        if (v == btnsave){
-            dataHandler();
-        }
+
 
     }
 

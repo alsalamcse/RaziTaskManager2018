@@ -27,16 +27,8 @@ public class MyTasksFragment extends Fragment {
 
     private OnListFragmentInteractionListener mListener;
 
-    /**
-     * Mandatory empty constructor for the fragment manager to instantiate the
-     * fragment (e.g. upon screen orientation changes).
-     * @param title
-     * @param text
-     * @param date
-     * @param progress
-     * @param skbNecessaryProgress
-     */
-    public MyTasksFragment(String title, String text, String date, int progress, int skbNecessaryProgress) {
+
+    public MyTasksFragment(){
 
     }
 

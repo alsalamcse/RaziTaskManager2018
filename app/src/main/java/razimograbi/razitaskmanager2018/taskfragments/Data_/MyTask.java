@@ -10,6 +10,7 @@ public class MyTask {
     private int necessary;
     private Date createdAt;
     private Date dueDate;
+    private String owner;
 
     public MyTask() {
     }
@@ -68,6 +69,14 @@ public class MyTask {
 
     public void setDueDate(Date dueDate) {
         this.dueDate = dueDate;
+    }
+
+    public String getOwner() {
+        return owner;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
     }
 
     @Override

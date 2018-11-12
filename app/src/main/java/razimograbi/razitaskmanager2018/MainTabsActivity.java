@@ -157,7 +157,7 @@ public class MainTabsActivity extends AppCompatActivity {
             // Return a PlaceholderFragment (defined as a static inner class below).
             if (position == 0){
                 if (myTasksFragment == null){
-                    myTasksFragment = new MyTasksFragment(title, text, date, skbImportant.getProgress(), skbNecessary.getProgress());
+                    myTasksFragment = new MyTasksFragment();
                 }
 
                 return myTasksFragment;
