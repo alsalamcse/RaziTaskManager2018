@@ -91,7 +91,7 @@ public class AddTaskActivity extends AppCompatActivity  {
         if ((isOk)){
             MyTask task = new MyTask();
             task.setCreatedAt(new Date());
-//            task.setDueDate(new Date(date));
+           // task.setDueDate(new Date(date));
             task.setText(text);
             task.setTitle(title);
             task.setImportant(important);
@@ -101,6 +101,7 @@ public class AddTaskActivity extends AppCompatActivity  {
             task.setOwner(auth.getCurrentUser().getEmail());
 
             DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+
             String key = reference.child("MyTasks").push().getKey();
             task.setKey(key);
             reference.child("MyTasks").child(key).setValue(task).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -108,15 +109,16 @@ public class AddTaskActivity extends AppCompatActivity  {
                 public void onComplete(@NonNull Task<Void> task) {
                     if (task.isSuccessful()){
                         Toast.makeText(getApplicationContext() , "it worked " , Toast.LENGTH_SHORT);
+                        Intent i = new Intent(getApplicationContext() , MainTabsActivity.class);
+                        startActivity(i);
                     }else {
                         Toast.makeText(getApplicationContext() , "it didnt work " , Toast.LENGTH_SHORT);
                     }
                 }
             });
 
-            Toast.makeText(getApplicationContext() , "It worked " , Toast.LENGTH_SHORT);
-            Intent i = new Intent(getApplicationContext() , MainTabsActivity.class);
-            startActivity(i);
+
+
         }
     }
 
